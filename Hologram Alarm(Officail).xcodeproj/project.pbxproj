@@ -8,20 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		E5B723B51CD7F8D400BDB97E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B723B41CD7F8D400BDB97E /* AppDelegate.swift */; };
-		E5B723B71CD7F8D400BDB97E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B723B61CD7F8D400BDB97E /* ViewController.swift */; };
 		E5B723BA1CD7F8D400BDB97E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B723B81CD7F8D400BDB97E /* Main.storyboard */; };
 		E5B723BC1CD7F8D400BDB97E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5B723BB1CD7F8D400BDB97E /* Assets.xcassets */; };
 		E5B723BF1CD7F8D400BDB97E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B723BD1CD7F8D400BDB97E /* LaunchScreen.storyboard */; };
+		E5B723C71CD7FA4C00BDB97E /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B723C61CD7FA4C00BDB97E /* Alarm.swift */; };
+		E5B723C91CD7FA5900BDB97E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B723C81CD7FA5900BDB97E /* Color.swift */; };
+		E5B723CB1CD7FC5300BDB97E /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B723CA1CD7FC5300BDB97E /* Font.swift */; };
+		E5B723CD1CD7FC5E00BDB97E /* StyleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B723CC1CD7FC5E00BDB97E /* StyleController.swift */; };
+		E5B723CF1CD804D400BDB97E /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B723CE1CD804D400BDB97E /* SettingsTableViewController.swift */; };
+		E5B723D11CD806A400BDB97E /* DetailSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B723D01CD806A400BDB97E /* DetailSettingsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E5B723B11CD7F8D400BDB97E /* Hologram Alarm(Officail).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hologram Alarm(Officail).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5B723B41CD7F8D400BDB97E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E5B723B61CD7F8D400BDB97E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E5B723B91CD7F8D400BDB97E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E5B723BB1CD7F8D400BDB97E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5B723BE1CD7F8D400BDB97E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E5B723C01CD7F8D400BDB97E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5B723C61CD7FA4C00BDB97E /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
+		E5B723C81CD7FA5900BDB97E /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		E5B723CA1CD7FC5300BDB97E /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		E5B723CC1CD7FC5E00BDB97E /* StyleController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleController.swift; sourceTree = "<group>"; };
+		E5B723CE1CD804D400BDB97E /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		E5B723D01CD806A400BDB97E /* DetailSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailSettingsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,9 +64,14 @@
 		E5B723B31CD7F8D400BDB97E /* Hologram Alarm(Officail) */ = {
 			isa = PBXGroup;
 			children = (
-				E5B723B41CD7F8D400BDB97E /* AppDelegate.swift */,
-				E5B723B61CD7F8D400BDB97E /* ViewController.swift */,
 				E5B723B81CD7F8D400BDB97E /* Main.storyboard */,
+				E5B723D01CD806A400BDB97E /* DetailSettingsTableViewController.swift */,
+				E5B723CE1CD804D400BDB97E /* SettingsTableViewController.swift */,
+				E5B723B41CD7F8D400BDB97E /* AppDelegate.swift */,
+				E5B723C61CD7FA4C00BDB97E /* Alarm.swift */,
+				E5B723C81CD7FA5900BDB97E /* Color.swift */,
+				E5B723CA1CD7FC5300BDB97E /* Font.swift */,
+				E5B723CC1CD7FC5E00BDB97E /* StyleController.swift */,
 				E5B723BB1CD7F8D400BDB97E /* Assets.xcassets */,
 				E5B723BD1CD7F8D400BDB97E /* LaunchScreen.storyboard */,
 				E5B723C01CD7F8D400BDB97E /* Info.plist */,
@@ -135,8 +150,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5B723B71CD7F8D400BDB97E /* ViewController.swift in Sources */,
+				E5B723CD1CD7FC5E00BDB97E /* StyleController.swift in Sources */,
+				E5B723C91CD7FA5900BDB97E /* Color.swift in Sources */,
+				E5B723CF1CD804D400BDB97E /* SettingsTableViewController.swift in Sources */,
+				E5B723CB1CD7FC5300BDB97E /* Font.swift in Sources */,
+				E5B723D11CD806A400BDB97E /* DetailSettingsTableViewController.swift in Sources */,
 				E5B723B51CD7F8D400BDB97E /* AppDelegate.swift in Sources */,
+				E5B723C71CD7FA4C00BDB97E /* Alarm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
