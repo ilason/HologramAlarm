@@ -16,15 +16,18 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var alarmButton: UIButton!
     @IBOutlet weak var messageLabel: UILabel!
     let alarm = Alarm()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         datePickerChanged()
         switchToAlarmNotSetView()
-        datePicker.minimumDate = NSDate()
+        alarmButton.layer.cornerRadius = 8
+        alarmButton.layer.masksToBounds = true
+        alarmButton.layer.borderWidth = 0.8
         
+        datePicker.minimumDate = NSDate()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SettingsTableViewController.switchToAlarmSetView), name: Alarm.notificationComplete, object: nil)
-                guard let scheduledNotifications = UIApplication.sharedApplication().scheduledLocalNotifications else {
+        guard let scheduledNotifications = UIApplication.sharedApplication().scheduledLocalNotifications else {
             return
         }
         alarm.cancel()
@@ -34,17 +37,15 @@ class SettingsTableViewController: UITableViewController {
                 
                 guard let fireDate = notification.fireDate else {return}
                 alarm.arm(fireDate)
-               switchToAlarmSetView()
+                switchToAlarmSetView()
             }
         }
-        
-        
     }
     func armAlarm() {
         alarm.arm(datePicker.date)
         switchToAlarmSetView()
     }
-
+    
     @IBAction func alarmButtonTapped(sender: AnyObject) {
         if alarm.isArmed {
             alarm.cancel()
@@ -90,17 +91,17 @@ class SettingsTableViewController: UITableViewController {
     @IBAction func datePickerValue(sender: AnyObject) {
         datePickerChanged()
     }
-
-
-//    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-//        
-//        return 0
-//    }
-//
-//    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//
-//        return 0
-//    }
+    
+    
+    //    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    //
+    //        return 0
+    //    }
+    //
+    //    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    //
+    //        return 0
+    //    }
     
     func datePickerChanged() {
         detailLabel.text = NSDateFormatter.localizedStringFromDate(datePicker.date, dateStyle: NSDateFormatterStyle.ShortStyle, timeStyle: NSDateFormatterStyle.ShortStyle)
@@ -127,7 +128,7 @@ class SettingsTableViewController: UITableViewController {
         tableView.beginUpdates()
         tableView.endUpdates()
     }
-   
-
+    
+    
     
 }
