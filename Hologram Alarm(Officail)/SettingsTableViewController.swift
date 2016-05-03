@@ -11,13 +11,79 @@ import UIKit
 class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
+    
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var alarmButton: UIButton!
+    @IBOutlet weak var messageLabel: UILabel!
+    let alarm = Alarm()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         datePickerChanged()
-
+        switchToAlarmNotSetView()
+        datePicker.minimumDate = NSDate()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SettingsTableViewController.switchToAlarmSetView), name: Alarm.notificationComplete, object: nil)
+                guard let scheduledNotifications = UIApplication.sharedApplication().scheduledLocalNotifications else {
+            return
+        }
+        alarm.cancel()
+        for notification in scheduledNotifications {
+            if notification.category == Alarm.categoryAlarm {
+                UIApplication.sharedApplication().cancelLocalNotification(notification)
+                
+                guard let fireDate = notification.fireDate else {return}
+                alarm.arm(fireDate)
+               switchToAlarmSetView()
+            }
+        }
+        
+        
+    }
+    func armAlarm() {
+        alarm.arm(datePicker.date)
+        switchToAlarmSetView()
     }
 
+    @IBAction func alarmButtonTapped(sender: AnyObject) {
+        if alarm.isArmed {
+            alarm.cancel()
+            switchToAlarmNotSetView()
+        } else {
+            armAlarm()
+        }
+    }
+    
+    func switchToAlarmSetView() {
+        let dateFormatter = NSDateFormatter()
+        
+        messageLabel.text = "Your alarm is set!"
+        
+        if let date = alarm.alarmDate {
+            dateLabel.text = dateFormatter.stringFromDate(date)
+            datePicker.date = date
+        } else {
+            dateLabel.text = "Hello :)"
+        }
+        
+        alarmButton.setTitle("Cacel Alarm", forState: .Normal)
+        datePicker.userInteractionEnabled = false
+    }
+    
+    
+    
+    func switchToAlarmNotSetView() {
+        alarm.cancel()
+        messageLabel.text = "Your alarm is not set."
+        dateLabel.text = "Wanna set your alarm?"
+        alarmButton.setTitle("Set Alarm", forState: .Normal)
+        datePicker.minimumDate = NSDate()
+        datePicker.userInteractionEnabled = true
+        
+    }
+    
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
