@@ -9,12 +9,14 @@
 import UIKit
 import AudioToolbox
 
+@IBDesignable
 class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var alarmButton: UIButton!
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var colorButton: UIButton!
     let alarm = Alarm()
     
     override func viewDidLoad() {
@@ -22,15 +24,24 @@ class SettingsTableViewController: UITableViewController {
         
         datePickerChanged()
         switchToAlarmNotSetView()
-//        tableView.reloadData()
-        
-        //Button Style
+        //**********************//
+        // MARK: - BUTTON STYLE//
+        //*********************//
         
         alarmButton.layer.cornerRadius = 8
         alarmButton.layer.masksToBounds = true
         alarmButton.layer.borderWidth = 0.8
+        colorButton.layer.cornerRadius = 8
+        colorButton.layer.masksToBounds = true
+        colorButton.layer.borderWidth = 0.8
         
         datePicker.minimumDate = NSDate()
+        
+        
+        //****************************//
+        // MARK: - CALL ALARM COMPLETE//
+        //****************************//
+        
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SettingsTableViewController.alarmComplete), name: Alarm.notificationComplete, object: nil)
         guard let scheduledNotifications = UIApplication.sharedApplication().scheduledLocalNotifications else {
@@ -47,10 +58,11 @@ class SettingsTableViewController: UITableViewController {
             }
         }
     }
-    func armAlarm() {
-        alarm.arm(datePicker.date)
-        switchToAlarmSetView()
-    }
+    
+    //**********************//
+    // MARK: - SWITCH ALARM VIEW//
+    // CHANGES VIEW WHEN ALARM IS SET, AND CANCELED.
+    //*********************//
     
     @IBAction func alarmButtonTapped(sender: AnyObject) {
         if alarm.isArmed {
@@ -89,11 +101,20 @@ class SettingsTableViewController: UITableViewController {
         
     }
     
+     func armAlarm() {
+        alarm.arm(datePicker.date)
+        switchToAlarmSetView()
+    }
+
     func alarmComplete() {
-//        let alertController = UIAlertController(title: "Alarm!", message: "Your alarm has finished.", preferredStyle: .Alert)
-//        alertController.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (_) in
             self.switchToAlarmNotSetView()
     }
+    
+    //**********************//
+    // MARK: - DATE PICKER//
+    //CHANGES DETAIL LABEL IN DATE PICKER TO CURRENT ALARM SET TIME.
+    //COLAPSES DATE PICKER WHEN CELL IS TAPPED.
+    //*********************//
     
     @IBAction func datePickerValue(sender: AnyObject) {
         datePickerChanged()
@@ -124,4 +145,32 @@ class SettingsTableViewController: UITableViewController {
         tableView.beginUpdates()
         tableView.endUpdates()
     }
+    
+    
+//************************//
+//MARK: - COLOR CELLS*****//
+//************************//
+    
+    
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

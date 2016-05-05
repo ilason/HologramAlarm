@@ -7,3 +7,9 @@
 //
 
 import Foundation
+class Color {
+    static let sharedInstance = Color()
+    
+    
+    var colorsArray = ["Pink", "Blue", "Green"]
+}
