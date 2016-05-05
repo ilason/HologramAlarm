@@ -22,14 +22,14 @@ class ColorSettingsViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
      func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Color.sharedInstance.colorsArray.count
+        return ColorController.sharedInstance.colorNames.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("colorCell", forIndexPath: indexPath)
-        cell.textLabel?.text = Color.sharedInstance.colorsArray[indexPath.row]
+        cell.textLabel?.text = ColorController.sharedInstance.colorNames[indexPath.row]
+        cell.imageView?.image = ColorController.sharedInstance.colorImages[indexPath.row]
         return cell
     }
     
-
 }

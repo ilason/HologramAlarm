@@ -6,10 +6,13 @@
 //  Copyright © 2016 IlasonApps. All rights reserved.
 //
 
-import Foundation
-class Color {
-    static let sharedInstance = Color()
+import UIKit
+
+class ColorController {
+    static let sharedInstance = ColorController()
     
+    var colorNames = ["Pink", "Blue", "Yellow"]
     
-    var colorsArray = ["Pink", "Blue", "Green"]
+    var colorImages = [UIImage(named: "pink"), UIImage(named: "blue"), UIImage(named: "yellow")]
+    
 }
