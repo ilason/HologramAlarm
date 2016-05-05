@@ -7,11 +7,11 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
-    
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var alarmButton: UIButton!
     @IBOutlet weak var messageLabel: UILabel!
@@ -19,14 +19,20 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         datePickerChanged()
         switchToAlarmNotSetView()
+//        tableView.reloadData()
+        
+        //Button Style
+        
         alarmButton.layer.cornerRadius = 8
         alarmButton.layer.masksToBounds = true
         alarmButton.layer.borderWidth = 0.8
         
         datePicker.minimumDate = NSDate()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SettingsTableViewController.switchToAlarmSetView), name: Alarm.notificationComplete, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(SettingsTableViewController.alarmComplete), name: Alarm.notificationComplete, object: nil)
         guard let scheduledNotifications = UIApplication.sharedApplication().scheduledLocalNotifications else {
             return
         }
@@ -57,51 +63,41 @@ class SettingsTableViewController: UITableViewController {
     
     func switchToAlarmSetView() {
         let dateFormatter = NSDateFormatter()
+        dateFormatter.timeStyle = .ShortStyle
+        dateFormatter.dateStyle = .LongStyle
         
         messageLabel.text = "Your alarm is set!"
         
         if let date = alarm.alarmDate {
-            dateLabel.text = dateFormatter.stringFromDate(date)
+            dateLabel.text = "Set for \(dateFormatter.stringFromDate(date))"
             datePicker.date = date
         } else {
-            dateLabel.text = "Hello :)"
+            dateLabel.text = ""
         }
         
         alarmButton.setTitle("Cacel Alarm", forState: .Normal)
         datePicker.userInteractionEnabled = false
     }
     
-    
-    
     func switchToAlarmNotSetView() {
         alarm.cancel()
         messageLabel.text = "Your alarm is not set."
-        dateLabel.text = "Wanna set your alarm?"
+        dateLabel.text = ""
         alarmButton.setTitle("Set Alarm", forState: .Normal)
         datePicker.minimumDate = NSDate()
         datePicker.userInteractionEnabled = true
         
     }
     
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    func alarmComplete() {
+//        let alertController = UIAlertController(title: "Alarm!", message: "Your alarm has finished.", preferredStyle: .Alert)
+//        alertController.addAction(UIAlertAction(title: "Dismiss", style: .Default, handler: { (_) in
+            self.switchToAlarmNotSetView()
     }
+    
     @IBAction func datePickerValue(sender: AnyObject) {
         datePickerChanged()
     }
-    
-    
-    //    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-    //
-    //        return 0
-    //    }
-    //
-    //    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    //
-    //        return 0
-    //    }
     
     func datePickerChanged() {
         detailLabel.text = NSDateFormatter.localizedStringFromDate(datePicker.date, dateStyle: NSDateFormatterStyle.ShortStyle, timeStyle: NSDateFormatterStyle.ShortStyle)
@@ -128,7 +124,4 @@ class SettingsTableViewController: UITableViewController {
         tableView.beginUpdates()
         tableView.endUpdates()
     }
-    
-    
-    
 }

@@ -64,10 +64,10 @@
 		E5B723B31CD7F8D400BDB97E /* Hologram Alarm(Officail) */ = {
 			isa = PBXGroup;
 			children = (
+				E5B723B41CD7F8D400BDB97E /* AppDelegate.swift */,
 				E5B723B81CD7F8D400BDB97E /* Main.storyboard */,
 				E5B723D01CD806A400BDB97E /* DetailSettingsTableViewController.swift */,
 				E5B723CE1CD804D400BDB97E /* SettingsTableViewController.swift */,
-				E5B723B41CD7F8D400BDB97E /* AppDelegate.swift */,
 				E5B723C61CD7FA4C00BDB97E /* Alarm.swift */,
 				E5B723C81CD7FA5900BDB97E /* Color.swift */,
 				E5B723CA1CD7FC5300BDB97E /* Font.swift */,
@@ -306,6 +306,7 @@
 				E5B723C51CD7F8D400BDB97E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
