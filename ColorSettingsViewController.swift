@@ -9,9 +9,11 @@
 import UIKit
 
 class ColorSettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    @IBOutlet weak var colorLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         // Do any additional setup after loading the view.
     }
@@ -29,7 +31,14 @@ class ColorSettingsViewController: UIViewController, UITableViewDelegate, UITabl
         let cell = tableView.dequeueReusableCellWithIdentifier("colorCell", forIndexPath: indexPath)
         cell.textLabel?.text = ColorController.sharedInstance.colorNames[indexPath.row]
         cell.imageView?.image = ColorController.sharedInstance.colorImages[indexPath.row]
+        
         return cell
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let color = ColorController.sharedInstance.colors[indexPath.row]
+        colorLabel.textColor = color
+//        AlarmViewController.sharedInstance.topTimeLabel = color
+        tableView.reloadData()
+    }
 }

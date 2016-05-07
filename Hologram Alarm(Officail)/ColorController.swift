@@ -15,4 +15,6 @@ class ColorController {
     
     var colorImages = [UIImage(named: "pink"), UIImage(named: "blue"), UIImage(named: "yellow")]
     
+    var colors: [UIColor] = [UIColor.alarmPink(), UIColor.alarmBlue(), UIColor.alarmYellow()]
+    
 }
