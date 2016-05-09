@@ -249,7 +249,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xdQ-bH-t6m">
-                                <rect key="frame" x="0.0" y="199" width="375" height="564"/>
+                                <rect key="frame" x="0.0" y="103" width="375" height="564"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="564" id="KBP-lI-7ZK"/>
@@ -279,10 +279,10 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QwC-r9-NWo">
-                                <rect key="frame" x="0.0" y="72" width="375" height="126"/>
+                                <rect key="frame" x="0.0" y="72" width="375" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UrO-MK-XrQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="126"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="35"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -304,9 +304,15 @@
                             <constraint firstAttribute="bottom" secondItem="QwC-r9-NWo" secondAttribute="bottom" constant="469" id="PGL-9K-Jid"/>
                             <constraint firstAttribute="trailing" secondItem="QwC-r9-NWo" secondAttribute="trailing" id="Zpl-4S-Lp5"/>
                             <constraint firstItem="QwC-r9-NWo" firstAttribute="leading" secondItem="OQ2-pG-4Zb" secondAttribute="leading" id="fJx-pT-MHc"/>
+                            <constraint firstItem="uyj-V3-yBZ" firstAttribute="top" secondItem="xdQ-bH-t6m" secondAttribute="bottom" id="m8d-HP-MDc"/>
                             <constraint firstItem="QwC-r9-NWo" firstAttribute="top" secondItem="xkn-de-3wG" secondAttribute="bottom" constant="8" symbolic="YES" id="pvf-fZ-jK2"/>
                             <constraint firstItem="QwC-r9-NWo" firstAttribute="leading" secondItem="xdQ-bH-t6m" secondAttribute="leading" id="u4O-RN-fc9"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="PGL-9K-Jid"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="colorLabel" destination="UrO-MK-XrQ" id="4eL-20-lcp"/>

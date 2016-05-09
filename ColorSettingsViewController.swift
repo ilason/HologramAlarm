@@ -37,8 +37,7 @@ class ColorSettingsViewController: UIViewController, UITableViewDelegate, UITabl
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let color = ColorController.sharedInstance.colors[indexPath.row]
-        colorLabel.textColor = color
-//        AlarmViewController.sharedInstance.topTimeLabel = color
+       colorLabel.textColor = color
         tableView.reloadData()
     }
 }

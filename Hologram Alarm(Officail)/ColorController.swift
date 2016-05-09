@@ -11,10 +11,10 @@ import UIKit
 class ColorController {
     static let sharedInstance = ColorController()
     
-    var colorNames = ["Pink", "Blue", "Yellow"]
+    var colorNames = ["Red", "Cherry", "Orange", "Honey", "Yellow", "Honeydew", "Mint", "Green", "Cyan", "Blue", "Purple", "Royal", "Pink"]
     
-    var colorImages = [UIImage(named: "pink"), UIImage(named: "blue"), UIImage(named: "yellow")]
+    var colorImages = [UIImage(named: "red"), UIImage(named: "cherryred"), UIImage(named: "Orange"), UIImage(named: "Honey"), UIImage(named: "yellow"), UIImage(named: "honeydew"), UIImage(named: "mint"), UIImage(named: "green"), UIImage(named: "cyan"), UIImage(named: "blue"), UIImage(named: "purple"), UIImage(named: "royal"), UIImage(named: "pink")]
     
-    var colors: [UIColor] = [UIColor.alarmPink(), UIColor.alarmBlue(), UIColor.alarmYellow()]
+    var colors: [UIColor] = [UIColor.alarmRed(), UIColor.alarmCherryRed(), UIColor.alarmOrange(), UIColor.alarmHoney(), UIColor.alarmYellow(),UIColor.alarmHoneydew(), UIColor.alarmMint(), UIColor.alarmGreen(), UIColor.alarmCyan(), UIColor.alarmBlue(), UIColor.alarmPurple(), UIColor.alarmRoyal(), UIColor.alarmPink()]
     
 }
