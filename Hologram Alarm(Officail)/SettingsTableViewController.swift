@@ -8,9 +8,10 @@
 
 import UIKit
 import AudioToolbox
+import AVFoundation
 
 @IBDesignable
-class SettingsTableViewController: UITableViewController {
+class SettingsTableViewController: UITableViewController{
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var dateLabel: UILabel!
@@ -19,8 +20,14 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var colorButton: UIButton!
     let alarm = Alarm()
     
+    var alarmAudioURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("clock alarm sound", ofType: "mp3")!)
+    
+    var buttonAudioPlayer = AVAudioPlayer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        buttonAudioPlayer = try!AVAudioPlayer(contentsOfURL: alarmAudioURL, fileTypeHint: nil)
         
         datePickerChanged()
         switchToAlarmNotSetView()
@@ -36,6 +43,13 @@ class SettingsTableViewController: UITableViewController {
         colorButton.layer.borderWidth = 0.8
         
         datePicker.minimumDate = NSDate()
+        
+        datePicker.setValue(UIColor(red: 0.502, green: 0.710, blue: 0.871, alpha: 1.00), forKeyPath: "textColor")
+//        datePicker.setValue(UIColor.whiteColor(), forKey: "selectedTextColor")
+        
+        
+       self.view.backgroundColor = UIColor.blackColor()
+        
         
         
         //****************************//
@@ -71,6 +85,7 @@ class SettingsTableViewController: UITableViewController {
         } else {
             armAlarm()
         }
+        
     }
     
     func switchToAlarmSetView() {
@@ -107,7 +122,9 @@ class SettingsTableViewController: UITableViewController {
     }
 
     func alarmComplete() {
-            self.switchToAlarmNotSetView()
+        self.switchToAlarmNotSetView()
+        buttonAudioPlayer.play()
+        
     }
     
     //**********************//
@@ -147,29 +164,7 @@ class SettingsTableViewController: UITableViewController {
     }
     
     
-//************************//
-//MARK: - COLOR CELLS*****//
-//************************//
-    
-    
-    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

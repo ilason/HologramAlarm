@@ -10,11 +10,16 @@ import UIKit
 
 class ColorSettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var colorLabel: UILabel!
+    let clock = Clock()
+    var timer: NSTimer?
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(AlarmViewController.updateTimeLabel), userInfo: nil, repeats: true)
 
+        
+        
         // Do any additional setup after loading the view.
     }
 
@@ -30,6 +35,7 @@ class ColorSettingsViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("colorCell", forIndexPath: indexPath)
         cell.textLabel?.text = ColorController.sharedInstance.colorNames[indexPath.row]
+        cell.textLabel?.textColor = UIColor(red: 0.502, green: 0.710, blue: 0.871, alpha: 1.00)
         cell.imageView?.image = ColorController.sharedInstance.colorImages[indexPath.row]
         
         return cell
@@ -39,5 +45,10 @@ class ColorSettingsViewController: UIViewController, UITableViewDelegate, UITabl
         let color = ColorController.sharedInstance.colors[indexPath.row]
        colorLabel.textColor = color
         tableView.reloadData()
+    }
+    func updateTimeLabel() {
+        let formatter = NSDateFormatter()
+        formatter.timeStyle = .ShortStyle
+        colorLabel.text = formatter.stringFromDate(clock.currentTime)
     }
 }

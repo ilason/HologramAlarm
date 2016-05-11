@@ -52,6 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
             AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
             AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
+            
 
         }
     }
