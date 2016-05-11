@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import QuartzCore
+
+@IBDesignable
 
 class AlarmViewController: UIViewController {
     
@@ -15,8 +18,6 @@ class AlarmViewController: UIViewController {
     let clock = Clock()
     var timer: NSTimer?
     
-
-    
     @IBOutlet weak var topTimeLabel: UILabel!
     @IBOutlet weak var rightTimeLabel: UILabel!
     @IBOutlet weak var bottomTimeLabel: UILabel!
@@ -24,13 +25,9 @@ class AlarmViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        transform()
         clearNavigationBar()
-        
-        
-        
-        // Do any additional setup after loading the view.
-    }
+        transform()
+}
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
@@ -43,35 +40,31 @@ class AlarmViewController: UIViewController {
     
      override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
-        topLabelAnimation()
-
-        
-        
-        
-//        UIView.animateWithDuration(10.0) {
-//            self.topTimeLabel.center.y -= self.view.bounds.width
-//        }
-//        UIView.animateWithDuration(20.0) {
-//            self.topTimeLabel.center.y += self.view.bounds.width
-//        }
-        
+        timeAnimation()
     }
 
 
-    func topLabelAnimation() {
+    func timeAnimation() {
         UIView.animateWithDuration(10.0, delay: 0.0, options: [.Repeat, .Autoreverse, .CurveEaseInOut], animations: {
-            self.topTimeLabel.center.y -= self.view.bounds.width
+            self.topTimeLabel.frame.origin = CGPointMake(self.topTimeLabel.frame.origin.x, -150)
             }, completion: nil)
         
-        UIView.animateWithDuration(20.0, delay: 0.0, options: [.Repeat, .Autoreverse, .CurveEaseInOut], animations: {
-            self.topTimeLabel.center.y += self.view.bounds.width
+        UIView.animateWithDuration(10.0, delay: 0.0, options: [.Repeat, .Autoreverse, .CurveEaseInOut], animations: {
+            self.bottomTimeLabel.frame.origin = CGPointMake(self.bottomTimeLabel.frame.origin.x, 275)
             }, completion: nil)
+        
+//        UIView.animateWithDuration(10.0, delay: 0.0, options: [.Repeat, .Autoreverse, .CurveEaseInOut], animations: {
+//            self.leftTimeLabel.frame.origin = CGPointMake(self.leftTimeLabel.frame.origin.x, 50)
+//            }, completion: nil)
+
     }
     
     func transform() {
-        bottomTimeLabel.transform = CGAffineTransformMakeRotation(3.14)
-        rightTimeLabel.transform = CGAffineTransformMakeRotation(3.14/2)
-        leftTimeLabel.transform = CGAffineTransformMakeRotation(3.14/(-2))
+        //INVERSTS LABEL AND FLIPS THEM ACCORDINGLY//
+        topTimeLabel.layer.transform = CATransform3DMakeRotation(3.14, 0.0, 1.0, 0.0)
+        leftTimeLabel.layer.transform = CATransform3DMakeRotation(3.14, (2.0/(2)), 1.0, 0.0)
+        rightTimeLabel.layer.transform = CATransform3DMakeRotation(3.14, (2.0/(-2)), 1.0, 0.0)
+        bottomTimeLabel.layer.transform = CATransform3DMakeRotation(3.14, 90.0, 1.0, 0.0)
     }
     
     func clearNavigationBar() {
@@ -87,6 +80,7 @@ class AlarmViewController: UIViewController {
         rightTimeLabel.text = formatter.stringFromDate(clock.currentTime)
         leftTimeLabel.text = formatter.stringFromDate(clock.currentTime)
         topTimeLabel.text = formatter.stringFromDate(clock.currentTime)
+   
         
     }
     
