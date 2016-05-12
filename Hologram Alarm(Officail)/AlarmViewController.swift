@@ -51,10 +51,10 @@ class AlarmViewController: UIViewController {
 
     
     func framesForLabels() {
-        self.progromaticTopLabel.frame = CGRectMake(view.center.x - 70, view.center.y - 150, 140, 140)
-        self.progromaticBottomLabel.frame = CGRectMake(view.center.x - 70, view.center.y - 40, 140, 140)
-        self.progromaticLeftLabel.frame = CGRectMake(view.center.x - 110, view.center.y - 105, 140, 140)
-        self.progromaticRightLabel.frame = CGRectMake(view.center.x - 30, view.center.y - 105, 140, 140)
+        self.progromaticTopLabel.frame = CGRectMake(view.center.x - 70, view.center.y - 155, 140, 140)
+        self.progromaticBottomLabel.frame = CGRectMake(view.center.x - 70, view.center.y + 45, 140, 140)
+        self.progromaticLeftLabel.frame = CGRectMake(view.center.x - 120, view.center.y - 60, 140, 140)
+        self.progromaticRightLabel.frame = CGRectMake(view.center.x - 10, view.center.y - 60, 140, 140)
     }
     
     func createLabels() {
@@ -112,11 +112,11 @@ class AlarmViewController: UIViewController {
             }, completion: nil)
         
         UIView.animateWithDuration(10.0, delay: 0.0, options: [.Repeat, .Autoreverse, .CurveEaseInOut], animations: {
-            self.progromaticLeftLabel.frame.origin = CGPointMake(self.progromaticLeftLabel.frame.origin.x - 110, self.progromaticLeftLabel.frame.origin.y - (self.progromaticLeftLabel.frame.height - self.progromaticLeftLabel.frame.width)/2)
+            self.progromaticLeftLabel.frame.origin = CGPointMake(self.progromaticLeftLabel.frame.origin.x - 130, self.progromaticLeftLabel.frame.origin.y - (self.progromaticLeftLabel.frame.height - self.progromaticLeftLabel.frame.width)/2)
             }, completion: nil)
         
         UIView.animateWithDuration(10.0, delay: 0.0, options: [.Repeat, .Autoreverse, .CurveEaseInOut], animations: {
-            self.progromaticRightLabel.frame.origin = CGPointMake(self.progromaticRightLabel.frame.origin.x + 110, self.progromaticRightLabel.frame.origin.y + (self.progromaticRightLabel.frame.height - self.progromaticRightLabel.frame.width)/2)
+            self.progromaticRightLabel.frame.origin = CGPointMake(self.progromaticRightLabel.frame.origin.x + 130, self.progromaticRightLabel.frame.origin.y + (self.progromaticRightLabel.frame.height - self.progromaticRightLabel.frame.width)/2)
             }, completion: nil)
 
     }
@@ -126,7 +126,7 @@ class AlarmViewController: UIViewController {
         progromaticTopLabel.layer.transform = CATransform3DMakeRotation(3.14, 0.0, 1.0, 0.0)
         progromaticLeftLabel.layer.transform = CATransform3DMakeRotation(3.14, (2.0/(2)), 1.0, 0.0)
         progromaticRightLabel.layer.transform = CATransform3DMakeRotation(3.14, (2.0/(-2)), 1.0, 0.0)
-        progromaticBottomLabel.layer.transform = CATransform3DMakeRotation(3.14, 90.0, 1.0, 0.0)
+        progromaticBottomLabel.layer.transform = CATransform3DMakeRotation(3.14, 200.2, 1.0, 0.0)
     }
     
     func clearNavigationBar() {
