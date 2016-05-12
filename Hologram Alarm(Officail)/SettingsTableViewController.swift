@@ -18,6 +18,7 @@ class SettingsTableViewController: UITableViewController{
     @IBOutlet weak var alarmButton: UIButton!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var colorButton: UIButton!
+    @IBOutlet weak var datePickerView: UIView!
     let alarm = Alarm()
     
     var alarmAudioURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("clock alarm sound", ofType: "mp3")!)
@@ -44,9 +45,11 @@ class SettingsTableViewController: UITableViewController{
         
         datePicker.minimumDate = NSDate()
         
-        datePicker.setValue(UIColor(red: 0.502, green: 0.710, blue: 0.871, alpha: 1.00), forKeyPath: "textColor")
-//        datePicker.setValue(UIColor.whiteColor(), forKey: "selectedTextColor")
-        
+        datePicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
+        datePickerView.layer.cornerRadius = 12
+        datePickerView.layer.masksToBounds = true
+        datePickerView.layer.borderWidth = 1.4
+        datePickerView.backgroundColor = UIColor(red: 0.502, green: 0.710, blue: 0.871, alpha: 1.00)
         
        self.view.backgroundColor = UIColor.blackColor()
         

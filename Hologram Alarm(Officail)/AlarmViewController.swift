@@ -23,48 +23,110 @@ class AlarmViewController: UIViewController {
     @IBOutlet weak var bottomTimeLabel: UILabel!
     @IBOutlet weak var leftTimeLabel: UILabel!
     
+    var progromaticTopLabel: UILabel!
+    var progromaticBottomLabel: UILabel!
+    var progromaticLeftLabel: UILabel!
+    var progromaticRightLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         clearNavigationBar()
+        createLabels()
         transform()
-}
+        
+    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(AlarmViewController.updateTimeLabel), userInfo: nil, repeats: true)
-
-        
-//        topTimeLabel.center.y = view.bounds.minY
+        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(AlarmViewController.updateWithTimeLabel), userInfo: nil, repeats: true)
+        framesForLabels()
         
     }
     
-     override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(true)
         timeAnimation()
+        
     }
 
+    
+    func framesForLabels() {
+        self.progromaticTopLabel.frame = CGRectMake(view.center.x - 70, view.center.y - 150, 140, 140)
+        self.progromaticBottomLabel.frame = CGRectMake(view.center.x - 70, view.center.y - 40, 140, 140)
+        self.progromaticLeftLabel.frame = CGRectMake(view.center.x - 110, view.center.y - 105, 140, 140)
+        self.progromaticRightLabel.frame = CGRectMake(view.center.x - 30, view.center.y - 105, 140, 140)
+    }
+    
+    func createLabels() {
+        
+        // Creates Label
+        self.progromaticTopLabel = UILabel()
+        self.progromaticBottomLabel = UILabel()
+        self.progromaticLeftLabel = UILabel()
+        self.progromaticRightLabel = UILabel()
+        //Sets Default Color
+        progromaticBottomLabel.textColor = .whiteColor()
+        progromaticTopLabel.textColor = .whiteColor()
+        progromaticLeftLabel.textColor = .whiteColor()
+        progromaticRightLabel.textColor = .whiteColor()
+        
+        //Centers Text
+        progromaticBottomLabel.textAlignment = .Center
+        progromaticTopLabel.textAlignment = .Center
+        progromaticLeftLabel.textAlignment = .Center
+        progromaticRightLabel.textAlignment = .Center
+        //Gives Text
+        progromaticTopLabel.text = ""
+        progromaticBottomLabel.text = ""
+        progromaticLeftLabel.text = ""
+        progromaticRightLabel.text = ""
+        //Adjust Font
+        progromaticTopLabel.font = progromaticTopLabel.font.fontWithSize(32.0)
+        progromaticBottomLabel.font = progromaticBottomLabel.font.fontWithSize(32.0)
+        progromaticLeftLabel.font = progromaticLeftLabel.font.fontWithSize(32.0)
+        progromaticRightLabel.font = progromaticRightLabel.font.fontWithSize(32.0)
 
+        //Puts it into view
+        view.addSubview(progromaticBottomLabel)
+        view.addSubview(progromaticTopLabel)
+        view.addSubview(progromaticLeftLabel)
+        view.addSubview(progromaticRightLabel)
+
+    }
+    
+    var labelColor: UIColor = .whiteColor() {
+        didSet {
+            progromaticTopLabel.textColor = labelColor
+            progromaticBottomLabel.textColor = labelColor
+            progromaticLeftLabel.textColor = labelColor
+            progromaticRightLabel.textColor = labelColor
+        }
+    }
     func timeAnimation() {
         UIView.animateWithDuration(10.0, delay: 0.0, options: [.Repeat, .Autoreverse, .CurveEaseInOut], animations: {
-            self.topTimeLabel.frame.origin = CGPointMake(self.topTimeLabel.frame.origin.x, -150)
+            self.progromaticTopLabel.frame.origin = CGPointMake(self.progromaticTopLabel.frame.origin.x, self.progromaticTopLabel.frame.origin.y - 150)
             }, completion: nil)
         
         UIView.animateWithDuration(10.0, delay: 0.0, options: [.Repeat, .Autoreverse, .CurveEaseInOut], animations: {
-            self.bottomTimeLabel.frame.origin = CGPointMake(self.bottomTimeLabel.frame.origin.x, 275)
+            self.progromaticBottomLabel.frame.origin = CGPointMake(self.progromaticBottomLabel.frame.origin.x, self.progromaticBottomLabel.frame.origin.y + 150)
             }, completion: nil)
         
-//        UIView.animateWithDuration(10.0, delay: 0.0, options: [.Repeat, .Autoreverse, .CurveEaseInOut], animations: {
-//            self.leftTimeLabel.frame.origin = CGPointMake(self.leftTimeLabel.frame.origin.x, 50)
-//            }, completion: nil)
+        UIView.animateWithDuration(10.0, delay: 0.0, options: [.Repeat, .Autoreverse, .CurveEaseInOut], animations: {
+            self.progromaticLeftLabel.frame.origin = CGPointMake(self.progromaticLeftLabel.frame.origin.x - 110, self.progromaticLeftLabel.frame.origin.y - (self.progromaticLeftLabel.frame.height - self.progromaticLeftLabel.frame.width)/2)
+            }, completion: nil)
+        
+        UIView.animateWithDuration(10.0, delay: 0.0, options: [.Repeat, .Autoreverse, .CurveEaseInOut], animations: {
+            self.progromaticRightLabel.frame.origin = CGPointMake(self.progromaticRightLabel.frame.origin.x + 110, self.progromaticRightLabel.frame.origin.y + (self.progromaticRightLabel.frame.height - self.progromaticRightLabel.frame.width)/2)
+            }, completion: nil)
 
     }
     
     func transform() {
         //INVERSTS LABEL AND FLIPS THEM ACCORDINGLY//
-        topTimeLabel.layer.transform = CATransform3DMakeRotation(3.14, 0.0, 1.0, 0.0)
-        leftTimeLabel.layer.transform = CATransform3DMakeRotation(3.14, (2.0/(2)), 1.0, 0.0)
-        rightTimeLabel.layer.transform = CATransform3DMakeRotation(3.14, (2.0/(-2)), 1.0, 0.0)
-        bottomTimeLabel.layer.transform = CATransform3DMakeRotation(3.14, 90.0, 1.0, 0.0)
+        progromaticTopLabel.layer.transform = CATransform3DMakeRotation(3.14, 0.0, 1.0, 0.0)
+        progromaticLeftLabel.layer.transform = CATransform3DMakeRotation(3.14, (2.0/(2)), 1.0, 0.0)
+        progromaticRightLabel.layer.transform = CATransform3DMakeRotation(3.14, (2.0/(-2)), 1.0, 0.0)
+        progromaticBottomLabel.layer.transform = CATransform3DMakeRotation(3.14, 90.0, 1.0, 0.0)
     }
     
     func clearNavigationBar() {
@@ -73,13 +135,13 @@ class AlarmViewController: UIViewController {
         navigationController?.navigationBar.translucent = true
 
     }
-    func updateTimeLabel() {
+    func updateWithTimeLabel() {
         let formatter = NSDateFormatter()
         formatter.timeStyle = .ShortStyle
-        bottomTimeLabel.text = formatter.stringFromDate(clock.currentTime)
-        rightTimeLabel.text = formatter.stringFromDate(clock.currentTime)
-        leftTimeLabel.text = formatter.stringFromDate(clock.currentTime)
-        topTimeLabel.text = formatter.stringFromDate(clock.currentTime)
+        progromaticBottomLabel.text = formatter.stringFromDate(clock.currentTime)
+        progromaticRightLabel.text = formatter.stringFromDate(clock.currentTime)
+        progromaticLeftLabel.text = formatter.stringFromDate(clock.currentTime)
+        progromaticTopLabel.text = formatter.stringFromDate(clock.currentTime)
    
         
     }
