@@ -57,6 +57,7 @@
                         <outlet property="bottomTimeLabel" destination="637-HM-GfF" id="3jL-cc-G6F"/>
                         <outlet property="leftTimeLabel" destination="neE-LV-zbF" id="ZLJ-v7-CjO"/>
                         <outlet property="rightTimeLabel" destination="oRp-JQ-1li" id="3ke-WR-yno"/>
+                        <outlet property="settingsBarButton" destination="97l-s6-Zf6" id="LdV-Re-7ha"/>
                         <outlet property="topTimeLabel" destination="0X4-uN-NwV" id="SLg-Pp-GC6"/>
                     </connections>
                 </viewController>

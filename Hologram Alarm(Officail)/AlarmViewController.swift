@@ -9,10 +9,12 @@
 import UIKit
 import QuartzCore
 
+
 @IBDesignable
 
 class AlarmViewController: UIViewController {
     
+    @IBOutlet weak var settingsBarButton: UIBarButtonItem!
     static let sharedInstance = AlarmViewController()
     
     let clock = Clock()
@@ -34,27 +36,29 @@ class AlarmViewController: UIViewController {
         createLabels()
         transform()
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(framesForLabels), name: UIApplicationDidBecomeActiveNotification, object: nil)
+        
+        self.settingsBarButton.title = NSString(string: "\u{2699}") as String
+        if let font = UIFont(name: "Helvetica", size: 32.0) {
+        self.settingsBarButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
+        }
+        
     }
     
     override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(true)
+        super.viewWillAppear(animated)
         timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(AlarmViewController.updateWithTimeLabel), userInfo: nil, repeats: true)
         framesForLabels()
         
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(true)
-        timeAnimation()
         
     }
-
     
     func framesForLabels() {
         self.progromaticTopLabel.frame = CGRectMake(view.center.x - 70, view.center.y - 155, 140, 140)
         self.progromaticBottomLabel.frame = CGRectMake(view.center.x - 70, view.center.y + 45, 140, 140)
         self.progromaticLeftLabel.frame = CGRectMake(view.center.x - 120, view.center.y - 60, 140, 140)
         self.progromaticRightLabel.frame = CGRectMake(view.center.x - 10, view.center.y - 60, 140, 140)
+        timeAnimation()
     }
     
     func createLabels() {
@@ -118,6 +122,7 @@ class AlarmViewController: UIViewController {
         UIView.animateWithDuration(10.0, delay: 0.0, options: [.Repeat, .Autoreverse, .CurveEaseInOut], animations: {
             self.progromaticRightLabel.frame.origin = CGPointMake(self.progromaticRightLabel.frame.origin.x + 130, self.progromaticRightLabel.frame.origin.y + (self.progromaticRightLabel.frame.height - self.progromaticRightLabel.frame.width)/2)
             }, completion: nil)
+        
 
     }
     
