@@ -9,6 +9,7 @@
 import UIKit
 
 class ColorSettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
     @IBOutlet weak var colorLabel: UILabel!
     var alarmTimeView = AlarmViewController()
     let clock = Clock()
@@ -17,6 +18,7 @@ class ColorSettingsViewController: UIViewController, UITableViewDelegate, UITabl
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //UPDATES LABEL WITH CUREENT TIME
         timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(AlarmViewController.updateWithTimeLabel), userInfo: nil, repeats: true)
 
         
@@ -41,7 +43,6 @@ class ColorSettingsViewController: UIViewController, UITableViewDelegate, UITabl
         
         return cell
     }
-    
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let color = ColorController.sharedInstance.colors[indexPath.row]
         colorLabel.textColor = color

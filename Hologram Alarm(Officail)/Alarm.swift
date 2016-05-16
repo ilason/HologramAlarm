@@ -72,8 +72,10 @@ class Alarm: NSObject {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         let str = dateFormatter.stringFromDate(date)
-        let newDate = dateFormatter.dateFromString(str)!
-        
-        return newDate
+        let newDate = dateFormatter.dateFromString(str)
+        if let newDate = newDate {
+            return newDate
+        }
+        return NSDate()
     }
 }

@@ -12,6 +12,9 @@ import AVFoundation
 
 @IBDesignable
 class SettingsTableViewController: UITableViewController{
+    
+    static let sharedInstance = SettingsTableViewController()
+    
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var dateLabel: UILabel!
@@ -21,14 +24,17 @@ class SettingsTableViewController: UITableViewController{
     @IBOutlet weak var datePickerView: UIView!
     let alarm = Alarm()
     
-    var alarmAudioURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("clock alarm sound", ofType: "mp3")!)
+    var alarmAudioURL = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("clock alarm sound", ofType: ".mp3") ?? "")
     
-    var buttonAudioPlayer = AVAudioPlayer()
+    var alarmSound : AVAudioPlayer?
+
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        alarmSound = try? AVAudioPlayer(contentsOfURL: alarmAudioURL, fileTypeHint: ".mp3")
         
-        buttonAudioPlayer = try!AVAudioPlayer(contentsOfURL: alarmAudioURL, fileTypeHint: nil)
         
         datePickerChanged()
         switchToAlarmNotSetView()
@@ -51,10 +57,7 @@ class SettingsTableViewController: UITableViewController{
         datePickerView.layer.borderWidth = 1.4
         datePickerView.backgroundColor = UIColor(red: 0.502, green: 0.710, blue: 0.871, alpha: 1.00)
         
-       self.view.backgroundColor = UIColor.blackColor()
-        
-        
-        
+        self.view.backgroundColor = UIColor.blackColor()
         
         
         //****************************//
@@ -70,7 +73,6 @@ class SettingsTableViewController: UITableViewController{
         for notification in scheduledNotifications {
             if notification.category == Alarm.categoryAlarm {
                 UIApplication.sharedApplication().cancelLocalNotification(notification)
-                
                 guard let fireDate = notification.fireDate else {return}
                 alarm.arm(fireDate)
                 switchToAlarmSetView()
@@ -78,8 +80,12 @@ class SettingsTableViewController: UITableViewController{
         }
     }
     
+    
+    
+    
+    
     //**********************//
-    // MARK: - SWITCH ALARM VIEW//
+    // MARK: - ALARM METHODS //
     // CHANGES VIEW WHEN ALARM IS SET, AND CANCELED.
     //*********************//
     
@@ -107,7 +113,7 @@ class SettingsTableViewController: UITableViewController{
             dateLabel.text = ""
         }
         
-        alarmButton.setTitle("Cacel Alarm", forState: .Normal)
+        alarmButton.setTitle("Cancel Alarm", forState: .Normal)
         datePicker.userInteractionEnabled = false
     }
     
@@ -121,16 +127,30 @@ class SettingsTableViewController: UITableViewController{
         
     }
     
-     func armAlarm() {
+    func armAlarm() {
         alarm.arm(datePicker.date)
         switchToAlarmSetView()
     }
-
+    
     func alarmComplete() {
         self.switchToAlarmNotSetView()
-        buttonAudioPlayer.play()
-        
+        if let alarmSound = alarmSound {
+            alarmSound.play()
+        }
     }
+    
+    func stopAlarm() {
+        //        if alarmSound != nil {
+        if let alarmSound = alarmSound {
+            alarmSound.stop()
+            alarmSound.currentTime = 0
+        }
+        
+        //        } else {
+        //            alarmSound = nil
+        //        }
+    }
+    
     
     //**********************//
     // MARK: - DATE PICKER//

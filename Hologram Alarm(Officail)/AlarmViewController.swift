@@ -20,11 +20,7 @@ class AlarmViewController: UIViewController {
     let clock = Clock()
     var timer: NSTimer?
     
-    @IBOutlet weak var topTimeLabel: UILabel!
-    @IBOutlet weak var rightTimeLabel: UILabel!
-    @IBOutlet weak var bottomTimeLabel: UILabel!
-    @IBOutlet weak var leftTimeLabel: UILabel!
-    
+
     var progromaticTopLabel: UILabel!
     var progromaticBottomLabel: UILabel!
     var progromaticLeftLabel: UILabel!
@@ -38,10 +34,12 @@ class AlarmViewController: UIViewController {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(framesForLabels), name: UIApplicationDidBecomeActiveNotification, object: nil)
         
-        self.settingsBarButton.title = NSString(string: "\u{2699}") as String
-        if let font = UIFont(name: "Helvetica", size: 32.0) {
-        self.settingsBarButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
-        }
+//        self.settingsBarButton.title = NSString(string: "\u{2699}") as String
+//        self.settingsBarButton.tintColor = UIColor.whiteColor()
+//        if let font = UIFont(name: "Helvetica", size: 42.0) {
+//        self.settingsBarButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
+//            
+//        }
         
     }
     
@@ -107,23 +105,21 @@ class AlarmViewController: UIViewController {
         }
     }
     func timeAnimation() {
-        UIView.animateWithDuration(10.0, delay: 0.0, options: [.Repeat, .Autoreverse, .CurveEaseInOut], animations: {
-            self.progromaticTopLabel.frame.origin = CGPointMake(self.progromaticTopLabel.frame.origin.x, self.progromaticTopLabel.frame.origin.y - 150)
+        UIView.animateWithDuration(15.0, delay: 0.0, options: [.Repeat, .Autoreverse, .CurveEaseInOut], animations: {
+            self.progromaticTopLabel.frame.origin = CGPointMake(self.progromaticTopLabel.frame.origin.x, self.progromaticTopLabel.frame.origin.y - 100)
             }, completion: nil)
         
-        UIView.animateWithDuration(10.0, delay: 0.0, options: [.Repeat, .Autoreverse, .CurveEaseInOut], animations: {
-            self.progromaticBottomLabel.frame.origin = CGPointMake(self.progromaticBottomLabel.frame.origin.x, self.progromaticBottomLabel.frame.origin.y + 150)
+        UIView.animateWithDuration(15.0, delay: 0.0, options: [.Repeat, .Autoreverse, .CurveEaseInOut], animations: {
+            self.progromaticBottomLabel.frame.origin = CGPointMake(self.progromaticBottomLabel.frame.origin.x, self.progromaticBottomLabel.frame.origin.y + 100)
             }, completion: nil)
         
-        UIView.animateWithDuration(10.0, delay: 0.0, options: [.Repeat, .Autoreverse, .CurveEaseInOut], animations: {
-            self.progromaticLeftLabel.frame.origin = CGPointMake(self.progromaticLeftLabel.frame.origin.x - 130, self.progromaticLeftLabel.frame.origin.y - (self.progromaticLeftLabel.frame.height - self.progromaticLeftLabel.frame.width)/2)
+        UIView.animateWithDuration(15.0, delay: 0.0, options: [.Repeat, .Autoreverse, .CurveEaseInOut], animations: {
+            self.progromaticLeftLabel.frame.origin = CGPointMake(self.progromaticLeftLabel.frame.origin.x - 80, self.progromaticLeftLabel.frame.origin.y - (self.progromaticLeftLabel.frame.height - self.progromaticLeftLabel.frame.width)/2)
             }, completion: nil)
         
-        UIView.animateWithDuration(10.0, delay: 0.0, options: [.Repeat, .Autoreverse, .CurveEaseInOut], animations: {
-            self.progromaticRightLabel.frame.origin = CGPointMake(self.progromaticRightLabel.frame.origin.x + 130, self.progromaticRightLabel.frame.origin.y + (self.progromaticRightLabel.frame.height - self.progromaticRightLabel.frame.width)/2)
+        UIView.animateWithDuration(15.0, delay: 0.0, options: [.Repeat, .Autoreverse, .CurveEaseInOut], animations: {
+            self.progromaticRightLabel.frame.origin = CGPointMake(self.progromaticRightLabel.frame.origin.x + 80, self.progromaticRightLabel.frame.origin.y + (self.progromaticRightLabel.frame.height - self.progromaticRightLabel.frame.width)/2)
             }, completion: nil)
-        
-
     }
     
     func transform() {
@@ -134,12 +130,14 @@ class AlarmViewController: UIViewController {
         progromaticBottomLabel.layer.transform = CATransform3DMakeRotation(3.14, 200.2, 1.0, 0.0)
     }
     
+    //Make navigation bar clear
     func clearNavigationBar() {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.translucent = true
 
     }
+    //set labels to the current time
     func updateWithTimeLabel() {
         let formatter = NSDateFormatter()
         formatter.timeStyle = .ShortStyle
