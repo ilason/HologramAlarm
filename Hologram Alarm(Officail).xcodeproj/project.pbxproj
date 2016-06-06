@@ -29,7 +29,7 @@
 		E5A5F2D91CDBF88F00C64215 /* ColorSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorSettingsViewController.swift; path = ../ColorSettingsViewController.swift; sourceTree = "<group>"; };
 		E5A5F2EC1CDD38D500C64215 /* ColorPallete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPallete.swift; sourceTree = "<group>"; };
 		E5A5F2EE1CDD3E3200C64215 /* AlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
-		E5B723B11CD7F8D400BDB97E /* Hologram Alarm(Officail).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hologram Alarm(Officail).app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5B723B11CD7F8D400BDB97E /* elFloat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = elFloat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5B723B41CD7F8D400BDB97E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5B723B91CD7F8D400BDB97E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E5B723BB1CD7F8D400BDB97E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -65,7 +65,7 @@
 		E5B723B21CD7F8D400BDB97E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E5B723B11CD7F8D400BDB97E /* Hologram Alarm(Officail).app */,
+				E5B723B11CD7F8D400BDB97E /* elFloat.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,7 +106,7 @@
 			);
 			name = "Hologram Alarm(Officail)";
 			productName = "Hologram Alarm(Officail)";
-			productReference = E5B723B11CD7F8D400BDB97E /* Hologram Alarm(Officail).app */;
+			productReference = E5B723B11CD7F8D400BDB97E /* elFloat.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -121,6 +121,7 @@
 				TargetAttributes = {
 					E5B723B01CD7F8D400BDB97E = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = WC8GDQJXAU;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -286,10 +287,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Hologram Alarm(Officail)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "DevMountain.Hologram-Alarm-Officail-";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = elFloat;
 			};
 			name = Debug;
 		};
@@ -297,10 +299,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Hologram Alarm(Officail)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "DevMountain.Hologram-Alarm-Officail-";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = elFloat;
 			};
 			name = Release;
 		};

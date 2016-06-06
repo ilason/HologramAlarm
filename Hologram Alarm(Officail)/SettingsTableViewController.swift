@@ -15,6 +15,7 @@ class SettingsTableViewController: UITableViewController{
     
     static let sharedInstance = SettingsTableViewController()
     
+    @IBOutlet weak var haveHologramButton: UIButton!
     @IBOutlet weak var detailLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var dateLabel: UILabel!
@@ -48,6 +49,9 @@ class SettingsTableViewController: UITableViewController{
         colorButton.layer.cornerRadius = 8
         colorButton.layer.masksToBounds = true
         colorButton.layer.borderWidth = 0.8
+        haveHologramButton.layer.cornerRadius = 8
+        haveHologramButton.layer.masksToBounds = true
+        haveHologramButton.layer.borderWidth = 0.8
         
         datePicker.minimumDate = NSDate()
         
@@ -88,6 +92,11 @@ class SettingsTableViewController: UITableViewController{
     // MARK: - ALARM METHODS //
     // CHANGES VIEW WHEN ALARM IS SET, AND CANCELED.
     //*********************//
+    
+    @IBAction func haveHologramButtonTapped(sender: AnyObject) {
+
+        UIApplication.sharedApplication().openURL(NSURL(string:  "http://hologramlock.com")!)
+    }
     
     @IBAction func alarmButtonTapped(sender: AnyObject) {
         if alarm.isArmed {

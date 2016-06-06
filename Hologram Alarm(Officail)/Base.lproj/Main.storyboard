@@ -9,7 +9,7 @@
         <!--Alarm View Controller-->
         <scene sceneID="z8w-k9-zFj">
             <objects>
-                <viewController id="E3G-aM-cxl" customClass="AlarmViewController" customModule="Hologram_Alarm_Officail_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="E3G-aM-cxl" customClass="AlarmViewController" customModule="elFloat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fOO-zg-4ac"/>
                         <viewControllerLayoutGuide type="bottom" id="9wd-gI-yLi"/>
@@ -39,7 +39,7 @@
         <!--Settings-->
         <scene sceneID="gPg-M7-qII">
             <objects>
-                <tableViewController id="6w0-zF-fJ7" customClass="SettingsTableViewController" customModule="Hologram_Alarm_Officail_" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="6w0-zF-fJ7" customClass="SettingsTableViewController" customModule="elFloat" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="sfc-Kn-Vmz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -143,7 +143,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your alarm is set for:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rm0-Xr-rL9">
                                                     <rect key="frame" x="8" y="8" width="359" height="74"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="26"/>
                                                     <color key="textColor" red="0.63469493960000001" green="0.85198612279999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -223,6 +223,44 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="91" id="ryv-2c-gFi">
+                                        <rect key="frame" x="0.0" y="716" width="375" height="91"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ryv-2c-gFi" id="4O8-kB-1Tr">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="90"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TC3-Rb-14f">
+                                                    <rect key="frame" x="8" y="8" width="359" height="74"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.63469493960000001" green="0.85198612279999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRe-DQ-aYU">
+                                                    <rect key="frame" x="8" y="8" width="359" height="74"/>
+                                                    <color key="backgroundColor" red="0.63469493960000001" green="0.85198612279999997" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="35"/>
+                                                    <state key="normal" title="Dont Have A Hologram?">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="haveHologramButtonTapped:" destination="6w0-zF-fJ7" eventType="touchUpInside" id="pr4-gC-BE9"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="bRe-DQ-aYU" secondAttribute="bottom" id="4Ac-Fl-Tnf"/>
+                                                <constraint firstItem="TC3-Rb-14f" firstAttribute="trailing" secondItem="4O8-kB-1Tr" secondAttribute="trailingMargin" id="4H9-8T-quz"/>
+                                                <constraint firstItem="TC3-Rb-14f" firstAttribute="leading" secondItem="4O8-kB-1Tr" secondAttribute="leadingMargin" id="82E-AT-IGh"/>
+                                                <constraint firstItem="TC3-Rb-14f" firstAttribute="bottom" secondItem="4O8-kB-1Tr" secondAttribute="bottomMargin" id="HNx-VG-6qQ"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="bRe-DQ-aYU" secondAttribute="trailing" id="P6G-Z4-jJq"/>
+                                                <constraint firstItem="bRe-DQ-aYU" firstAttribute="top" secondItem="4O8-kB-1Tr" secondAttribute="topMargin" id="S9s-If-qd5"/>
+                                                <constraint firstItem="bRe-DQ-aYU" firstAttribute="leading" secondItem="4O8-kB-1Tr" secondAttribute="leadingMargin" id="p2o-Ph-U8x"/>
+                                                <constraint firstItem="TC3-Rb-14f" firstAttribute="top" secondItem="4O8-kB-1Tr" secondAttribute="topMargin" id="xNR-53-udg"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -241,6 +279,7 @@
                         <outlet property="datePicker" destination="WyV-VF-kuR" id="71y-Io-Dyg"/>
                         <outlet property="datePickerView" destination="b3F-hF-OsF" id="Smj-bj-lOL"/>
                         <outlet property="detailLabel" destination="4pt-Ab-VWd" id="O6i-GM-czN"/>
+                        <outlet property="haveHologramButton" destination="bRe-DQ-aYU" id="d7j-6I-cbB"/>
                         <outlet property="messageLabel" destination="rxt-wo-7tw" id="mh7-b5-I9Q"/>
                     </connections>
                 </tableViewController>
@@ -251,7 +290,7 @@
         <!--Color Settings View Controller-->
         <scene sceneID="bMR-QB-1Bg">
             <objects>
-                <viewController id="YF5-Fj-5NL" customClass="ColorSettingsViewController" customModule="Hologram_Alarm_Officail_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="YF5-Fj-5NL" customClass="ColorSettingsViewController" customModule="elFloat" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xkn-de-3wG"/>
                         <viewControllerLayoutGuide type="bottom" id="uyj-V3-yBZ"/>

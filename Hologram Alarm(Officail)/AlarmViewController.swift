@@ -28,6 +28,7 @@ class AlarmViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIApplication.sharedApplication().idleTimerDisabled = true
         clearNavigationBar()
         createLabels()
         transform()
