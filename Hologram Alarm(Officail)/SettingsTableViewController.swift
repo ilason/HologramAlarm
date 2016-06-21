@@ -34,6 +34,8 @@ class SettingsTableViewController: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.hidesBarsOnTap = false
+
         alarmSound = try? AVAudioPlayer(contentsOfURL: alarmAudioURL, fileTypeHint: ".mp3")
         
         
@@ -95,7 +97,7 @@ class SettingsTableViewController: UITableViewController{
     
     @IBAction func haveHologramButtonTapped(sender: AnyObject) {
 
-        UIApplication.sharedApplication().openURL(NSURL(string:  "http://hologramlock.com")!)
+        UIApplication.sharedApplication().openURL(NSURL(string:  "http://uptimeshop.us")!)
     }
     
     @IBAction func alarmButtonTapped(sender: AnyObject) {
@@ -116,7 +118,7 @@ class SettingsTableViewController: UITableViewController{
         messageLabel.text = "Your alarm is set!"
         
         if let date = alarm.alarmDate {
-            dateLabel.text = "Set for \(dateFormatter.stringFromDate(date))"
+            dateLabel.text = "\(dateFormatter.stringFromDate(date))"
             datePicker.date = date
         } else {
             dateLabel.text = ""

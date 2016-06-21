@@ -29,20 +29,18 @@ class AlarmViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.sharedApplication().idleTimerDisabled = true
+        self.navigationController?.hidesBarsOnTap = true
         clearNavigationBar()
         createLabels()
         transform()
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(framesForLabels), name: UIApplicationDidBecomeActiveNotification, object: nil)
         
-//        self.settingsBarButton.title = NSString(string: "\u{2699}") as String
-//        self.settingsBarButton.tintColor = UIColor.whiteColor()
-//        if let font = UIFont(name: "Helvetica", size: 42.0) {
-//        self.settingsBarButton.setTitleTextAttributes([NSFontAttributeName: font], forState: UIControlState.Normal)
-//            
-//        }
+
         
     }
+    
+    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -54,7 +52,7 @@ class AlarmViewController: UIViewController {
     
     func framesForLabels() {
         self.progromaticTopLabel.frame = CGRectMake(view.center.x - 70, view.center.y - 155, 140, 140)
-        self.progromaticBottomLabel.frame = CGRectMake(view.center.x - 70, view.center.y + 45, 140, 140)
+        self.progromaticBottomLabel.frame = CGRectMake(view.center.x - 70, view.center.y + 30, 140, 140)
         self.progromaticLeftLabel.frame = CGRectMake(view.center.x - 120, view.center.y - 60, 140, 140)
         self.progromaticRightLabel.frame = CGRectMake(view.center.x - 10, view.center.y - 60, 140, 140)
         timeAnimation()
@@ -106,19 +104,19 @@ class AlarmViewController: UIViewController {
         }
     }
     func timeAnimation() {
-        UIView.animateWithDuration(15.0, delay: 0.0, options: [.Repeat, .Autoreverse, .CurveEaseInOut], animations: {
+        UIView.animateWithDuration(13.0, delay: 0.0, options: [.Repeat, .Autoreverse, .CurveEaseInOut], animations: {
             self.progromaticTopLabel.frame.origin = CGPointMake(self.progromaticTopLabel.frame.origin.x, self.progromaticTopLabel.frame.origin.y - 100)
             }, completion: nil)
         
-        UIView.animateWithDuration(15.0, delay: 0.0, options: [.Repeat, .Autoreverse, .CurveEaseInOut], animations: {
+        UIView.animateWithDuration(13.0, delay: 0.0, options: [.Repeat, .Autoreverse, .CurveEaseInOut], animations: {
             self.progromaticBottomLabel.frame.origin = CGPointMake(self.progromaticBottomLabel.frame.origin.x, self.progromaticBottomLabel.frame.origin.y + 100)
             }, completion: nil)
         
-        UIView.animateWithDuration(15.0, delay: 0.0, options: [.Repeat, .Autoreverse, .CurveEaseInOut], animations: {
+        UIView.animateWithDuration(13.0, delay: 0.0, options: [.Repeat, .Autoreverse, .CurveEaseInOut], animations: {
             self.progromaticLeftLabel.frame.origin = CGPointMake(self.progromaticLeftLabel.frame.origin.x - 80, self.progromaticLeftLabel.frame.origin.y - (self.progromaticLeftLabel.frame.height - self.progromaticLeftLabel.frame.width)/2)
             }, completion: nil)
         
-        UIView.animateWithDuration(15.0, delay: 0.0, options: [.Repeat, .Autoreverse, .CurveEaseInOut], animations: {
+        UIView.animateWithDuration(13.0, delay: 0.0, options: [.Repeat, .Autoreverse, .CurveEaseInOut], animations: {
             self.progromaticRightLabel.frame.origin = CGPointMake(self.progromaticRightLabel.frame.origin.x + 80, self.progromaticRightLabel.frame.origin.y + (self.progromaticRightLabel.frame.height - self.progromaticRightLabel.frame.width)/2)
             }, completion: nil)
     }
@@ -136,6 +134,7 @@ class AlarmViewController: UIViewController {
         navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: UIBarMetrics.Default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.translucent = true
+        navigationController?.navigationBar.backgroundColor = UIColor.blackColor()
 
     }
     //set labels to the current time

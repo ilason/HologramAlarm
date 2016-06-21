@@ -14,6 +14,7 @@ class ColorSettingsViewController: UIViewController, UITableViewDelegate, UITabl
     var alarmTimeView = AlarmViewController()
     let clock = Clock()
     var timer: NSTimer?
+    @IBOutlet weak var tableView: UITableView!
 
 
     override func viewDidLoad() {
@@ -49,9 +50,16 @@ class ColorSettingsViewController: UIViewController, UITableViewDelegate, UITabl
         (self.navigationController?.viewControllers.first as? AlarmViewController)?.labelColor = color
         tableView.reloadData()
     }
+    
+ 
+    
+    
     func updateWithTimeLabel() {
         let formatter = NSDateFormatter()
         formatter.timeStyle = .ShortStyle
         colorLabel.text = formatter.stringFromDate(clock.currentTime)
     }
+    
+    
 }
+
