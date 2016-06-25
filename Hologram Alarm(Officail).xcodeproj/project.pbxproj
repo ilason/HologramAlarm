@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E50E08A91CE2C68E004AE1EF /* clock alarm sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E50E08A81CE2C68E004AE1EF /* clock alarm sound.mp3 */; };
 		E50E08AB1CE2C75A004AE1EF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E50E08AA1CE2C75A004AE1EF /* AVFoundation.framework */; };
 		E50E08B01CE39560004AE1EF /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50E08AF1CE39560004AE1EF /* Clock.swift */; };
 		E5A5F2DA1CDBF88F00C64215 /* ColorSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A5F2D91CDBF88F00C64215 /* ColorSettingsViewController.swift */; };
@@ -17,25 +16,22 @@
 		E5B723BA1CD7F8D400BDB97E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B723B81CD7F8D400BDB97E /* Main.storyboard */; };
 		E5B723BC1CD7F8D400BDB97E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5B723BB1CD7F8D400BDB97E /* Assets.xcassets */; };
 		E5B723BF1CD7F8D400BDB97E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5B723BD1CD7F8D400BDB97E /* LaunchScreen.storyboard */; };
-		E5B723C71CD7FA4C00BDB97E /* Alarm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B723C61CD7FA4C00BDB97E /* Alarm.swift */; };
 		E5B723C91CD7FA5900BDB97E /* ColorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B723C81CD7FA5900BDB97E /* ColorController.swift */; };
 		E5B723CF1CD804D400BDB97E /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B723CE1CD804D400BDB97E /* SettingsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E50E08A81CE2C68E004AE1EF /* clock alarm sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "clock alarm sound.mp3"; sourceTree = "<group>"; };
 		E50E08AA1CE2C75A004AE1EF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E50E08AF1CE39560004AE1EF /* Clock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
 		E5A5F2D91CDBF88F00C64215 /* ColorSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ColorSettingsViewController.swift; path = ../ColorSettingsViewController.swift; sourceTree = "<group>"; };
 		E5A5F2EC1CDD38D500C64215 /* ColorPallete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPallete.swift; sourceTree = "<group>"; };
 		E5A5F2EE1CDD3E3200C64215 /* AlarmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
-		E5B723B11CD7F8D400BDB97E /* elFloat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = elFloat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5B723B11CD7F8D400BDB97E /* UpTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UpTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5B723B41CD7F8D400BDB97E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5B723B91CD7F8D400BDB97E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E5B723BB1CD7F8D400BDB97E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5B723BE1CD7F8D400BDB97E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E5B723C01CD7F8D400BDB97E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E5B723C61CD7FA4C00BDB97E /* Alarm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alarm.swift; sourceTree = "<group>"; };
 		E5B723C81CD7FA5900BDB97E /* ColorController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorController.swift; sourceTree = "<group>"; };
 		E5B723CE1CD804D400BDB97E /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -56,7 +52,6 @@
 			isa = PBXGroup;
 			children = (
 				E50E08AA1CE2C75A004AE1EF /* AVFoundation.framework */,
-				E50E08A81CE2C68E004AE1EF /* clock alarm sound.mp3 */,
 				E5B723B31CD7F8D400BDB97E /* Hologram Alarm(Officail) */,
 				E5B723B21CD7F8D400BDB97E /* Products */,
 			);
@@ -65,7 +60,7 @@
 		E5B723B21CD7F8D400BDB97E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E5B723B11CD7F8D400BDB97E /* elFloat.app */,
+				E5B723B11CD7F8D400BDB97E /* UpTime.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -78,7 +73,6 @@
 				E5B723CE1CD804D400BDB97E /* SettingsTableViewController.swift */,
 				E5A5F2D91CDBF88F00C64215 /* ColorSettingsViewController.swift */,
 				E5A5F2EE1CDD3E3200C64215 /* AlarmViewController.swift */,
-				E5B723C61CD7FA4C00BDB97E /* Alarm.swift */,
 				E50E08AF1CE39560004AE1EF /* Clock.swift */,
 				E5B723C81CD7FA5900BDB97E /* ColorController.swift */,
 				E5A5F2EC1CDD38D500C64215 /* ColorPallete.swift */,
@@ -106,7 +100,7 @@
 			);
 			name = "Hologram Alarm(Officail)";
 			productName = "Hologram Alarm(Officail)";
-			productReference = E5B723B11CD7F8D400BDB97E /* elFloat.app */;
+			productReference = E5B723B11CD7F8D400BDB97E /* UpTime.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -155,7 +149,6 @@
 			files = (
 				E5B723BF1CD7F8D400BDB97E /* LaunchScreen.storyboard in Resources */,
 				E5B723BC1CD7F8D400BDB97E /* Assets.xcassets in Resources */,
-				E50E08A91CE2C68E004AE1EF /* clock alarm sound.mp3 in Resources */,
 				E5B723BA1CD7F8D400BDB97E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -174,7 +167,6 @@
 				E5B723CF1CD804D400BDB97E /* SettingsTableViewController.swift in Sources */,
 				E5A5F2EF1CDD3E3200C64215 /* AlarmViewController.swift in Sources */,
 				E5B723B51CD7F8D400BDB97E /* AppDelegate.swift in Sources */,
-				E5B723C71CD7FA4C00BDB97E /* Alarm.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,7 +283,7 @@
 				INFOPLIST_FILE = "Hologram Alarm(Officail)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "DevMountain.Hologram-Alarm-Officail-";
-				PRODUCT_NAME = elFloat;
+				PRODUCT_NAME = UpTime;
 			};
 			name = Debug;
 		};
@@ -303,7 +295,7 @@
 				INFOPLIST_FILE = "Hologram Alarm(Officail)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "DevMountain.Hologram-Alarm-Officail-";
-				PRODUCT_NAME = elFloat;
+				PRODUCT_NAME = UpTime;
 			};
 			name = Release;
 		};

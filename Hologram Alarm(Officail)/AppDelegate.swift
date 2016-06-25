@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.LightContent, animated: true)
+        UIApplication.sharedApplication().setStatusBarStyle(UIStatusBarStyle.Default, animated: true)
         
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil))
         
@@ -45,25 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
         
-        if notification.category == Alarm.categoryAlarm {
-            
-            let alarmAlert = UIAlertController(title: "Alarm!", message: "Test", preferredStyle: .Alert)
-            alarmAlert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (_) in
-                dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                    SettingsTableViewController.sharedInstance.stopAlarm()
-                })
-                
-                
-            }))
-            
-            window?.rootViewController?.presentViewController(alarmAlert, animated: true, completion: nil)
-            Alarm.alarmComplete()
-            AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
-            AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
-            AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
-            
-            
-        }
+
     }
     
     func applicationWillTerminate(application: UIApplication) {
